@@ -1,10 +1,10 @@
-import Vue from 'vue';
+import Vue, { CreateElement } from 'vue';
 import App from './app.vue';
 import vuetify from './plugins/vuetify';
 
 Vue.config.productionTip = false;
 
-new Vue({
+(new Vue({
   vuetify,
-  render: (h) => h(App),
-}).$mount('#app');
+  render: (h: CreateElement) => h(App),
+}) as any).$mount('#app');

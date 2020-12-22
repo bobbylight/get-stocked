@@ -1,8 +1,5 @@
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
-import { Portfolio } from '../../stocky-service/src/models/portfolio';
-import { ErrorResponse } from '../../stocky-service/src/models/error-response';
-import { Quote } from '../../stocky-service/src/models/quote';
-import CandleData from '../../stocky-service/src/models/candle-data';
+import { CandleData, ErrorResponse, Portfolio, Quote } from '../../stocky-service/src/api';
 
 export class RestApi {
 

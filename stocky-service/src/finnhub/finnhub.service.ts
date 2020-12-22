@@ -38,6 +38,7 @@ export class FinnhubService {
           open: response.data.o,
           previousClose: response.data.pc,
           timestamp: response.data.t,
+          volume: undefined,
           source: 'finnhub'
         };
       });

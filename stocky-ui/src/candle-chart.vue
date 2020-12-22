@@ -12,7 +12,7 @@ import Chart from 'chart.js';
 import Component from 'vue-class-component';
 import restApi from './rest-api';
 import { Prop } from 'vue-property-decorator';
-import CandleData from '../../stocky-service/src/models/candle-data';
+import { CandleData } from '../../stocky-service/src/api';
 
 @Component
 export default class CandleChart extends Vue {
@@ -29,8 +29,7 @@ export default class CandleChart extends Vue {
 
           if ('ok' !== data.s) {
             this.value = 'No data found';
-          }
-          else {
+          } else {
             this.value = '' + data.c.length;
             this.createChart(data);
           }
@@ -39,22 +38,24 @@ export default class CandleChart extends Vue {
 
   private createChart(data: CandleData) {
 
-    const ctx: HTMLDivElement = this.$refs['chart'] as HTMLDivElement;
+    const ctx: HTMLCanvasElement = this.$refs[ 'chart' ] as HTMLCanvasElement;
     const chart = new Chart(ctx, {
       type: 'line',
       data: {
-        datasets: [{
-          label: 'Price',
-          data: data.c
-        }]
+        datasets: [
+          {
+            label: 'Price',
+            data: data.c,
+          },
+        ],
       },
       options: {
         scales: {
           xAxes: [{
             type: 'category',
-            labels: [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
-          }]
-        }
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          }],
+        },
       }
     });
   }

@@ -23,10 +23,8 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import restApi from './rest-api';
-import { Security } from '../../stocky-service/src/models/security';
 import { Prop } from 'vue-property-decorator';
-import { Quote } from '../../stocky-service/src/models/quote';
+import { Quote, Security } from '../../stocky-service/src/api';
 
 @Component
 export default class SecurityTile extends Vue {
@@ -37,16 +35,16 @@ export default class SecurityTile extends Vue {
   private quote: Quote | null = null;
 
   public mounted() {
-
-    // Random time between 1 and 3 seconds
-    const randomDelay = (Math.floor(Math.random() * 3) + 1) * 1000;
-
-    setTimeout(() => {
-      restApi.getPrice(this.security.ticker)
-        .then((quote: Quote) => {
-          this.quote = quote;
-        });
-    }, randomDelay);
+    //
+    // // Random time between 1 and 3 seconds
+    // const randomDelay = (Math.floor(Math.random() * 3) + 1) * 1000;
+    //
+    // setTimeout(() => {
+    //   restApi.getPrice(this.security.ticker)
+    //     .then((quote: Quote) => {
+    //       this.quote = quote;
+    //     });
+    // }, randomDelay);
   }
 
   private get delta(): number | string {

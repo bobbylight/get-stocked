@@ -29,6 +29,7 @@ export interface Quote {
   current: number;
   previousClose: number;
   timestamp: number;
+  volume?: number;
   source: DataSource;
 }
 

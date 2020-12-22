@@ -51,6 +51,7 @@ export class YahooService {
           open: response.data.price.regularMarketOpen.raw,
           previousClose: response.data.price.regularMarketPreviousClose.raw,
           timestamp: response.data.price.regularMarketTime,
+          volume: response.data.price.regularMarketVolume.raw,
           source: 'yahoo'
         };
       });

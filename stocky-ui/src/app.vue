@@ -33,6 +33,7 @@
 import Vue from 'vue';
 import SecurityListing from './security-listing.vue';
 import CandleChart from '@/candle-chart.vue';
+import SecurityTable from '@/security-table.vue';
 
 export default Vue.extend({
   name: 'App',
@@ -40,10 +41,11 @@ export default Vue.extend({
   components: {
     CandleChart,
     SecurityListing,
+    SecurityTable,
   },
 
   data: () => ({
-    //
+    filter: 'a'
   }),
 });
 </script>
